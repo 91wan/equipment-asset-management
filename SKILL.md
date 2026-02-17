@@ -31,6 +31,9 @@ python3 scripts/calculate-cost.py --registry ./equipment-registry.md
 # Generate full report with charts
 python3 scripts/generate-report.py --registry ./equipment-registry.md --charts
 
+# Health diagnosis and financial advice ⭐ NEW
+python3 scripts/health-diagnose.py --data ./equipment-data.json --output ./health-report.md
+
 # Sync to GitHub Gist
 python3 scripts/github-sync.py --registry ./equipment-registry.md --gist
 ```
@@ -148,6 +151,40 @@ python3 scripts/github-sync.py --registry ./equipment-registry.md \
 ```
 
 See [references/examples.md](references/examples.md) for GitHub Actions automation.
+
+## 🔍 Health Diagnosis & Financial Advice ⭐ NEW
+
+Generate comprehensive device health reports with financial recommendations:
+
+```bash
+python3 scripts/health-diagnose.py --data ./equipment-data.json --output ./health-report.md
+```
+
+### Health Score Calculation
+
+Health Score (0-100) based on:
+- **Cost Efficiency** (40%): Daily cost vs industry benchmark
+- **Age Factor** (30%): Usage years vs expected lifespan
+- **Status** (30%): Active/idle/unknown
+
+### Health Ratings
+
+| Score | Rating | Recommendation |
+|:---:|:---:|:---|
+| 85+ | 🏆 Epic | Use until failure, excellent value |
+| 70-84 | 🟢 Excellent | Continue using, good condition |
+| 55-69 | 🟡 Good | Normal use, monitor maintenance |
+| 40-54 | 🟠 Fair | Evaluate replacement need |
+| < 40 | 🔴 Replace | Consider selling or upgrading |
+
+### Output Report Sections
+
+1. **TOP 5 Value Assets** - Best performing devices
+2. **Full Device Diagnostics** - All devices with health scores
+3. **Immediate Sell Recommendations** - Devices to sell now
+4. **Annual Budget Planning** - Update roadmap and budget allocation
+
+See [references/examples.md](references/examples.md) for sample health report.
 
 ## 💡 Disposal Recommendations
 
